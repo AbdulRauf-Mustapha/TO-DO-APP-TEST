@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>4.26.0</selenium.version>
         <junit.version>5.10.1</junit.version>
-        <webdrivermanager.version>5.9.2</webdrivermanager.version>
+        <webdrivermanager.version>6.4.0</webdrivermanager.version>
         <maven.surefire.version>3.2.2</maven.surefire.version>
         <allure.version>2.24.0</allure.version>
         <allure.maven.version>2.12.0</allure.maven.version>
@@ -256,4 +256,22 @@
             </build>
         </profile>
     </profiles>
+
+    <!-- Pin patched versions of vulnerable dependencies -->
+    <dependencyManagement>
+        <dependencies>
+        <!-- BEGIN vuln-pins (OSV scan) -->
+            <dependency><groupId>com.fasterxml.jackson</groupId><artifactId>jackson-bom</artifactId><version>2.23.0</version><type>pom</type><scope>import</scope></dependency>
+            <dependency><groupId>io.opentelemetry</groupId><artifactId>opentelemetry-bom</artifactId><version>1.68.0</version><type>pom</type><scope>import</scope></dependency>
+            <dependency><groupId>com.google.guava</groupId><artifactId>guava</artifactId><version>33.8.0-jre</version></dependency>
+            <dependency><groupId>io.github.bonigarcia</groupId><artifactId>webdrivermanager</artifactId><version>6.4.0</version></dependency>
+            <dependency><groupId>org.apache.commons</groupId><artifactId>commons-lang3</artifactId><version>3.22.0</version></dependency>
+            <dependency><groupId>org.apache.httpcomponents.client5</groupId><artifactId>httpclient5</artifactId><version>5.6.5</version></dependency>
+            <dependency><groupId>org.apache.httpcomponents.core5</groupId><artifactId>httpcore5</artifactId><version>5.5</version></dependency>
+            <dependency><groupId>org.apache.httpcomponents.core5</groupId><artifactId>httpcore5-h2</artifactId><version>5.5</version></dependency>
+            <dependency><groupId>org.freemarker</groupId><artifactId>freemarker</artifactId><version>2.3.35</version></dependency>
+        <!-- END vuln-pins -->
+        </dependencies>
+    </dependencyManagement>
+
 </project>
